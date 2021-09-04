@@ -24,9 +24,7 @@ public:
         for(int i = 0; i < n; i++) trash[i] = a;
     }
 
-   subvector (int *massiv, int n) { //передается указатель / сколько оттуда копировать
-        delete[] trash;
-
+   subvector (int *massiv, int n) { //передается указатель / сколько оттуда использовать
         trash = massiv;
         l = n;
         available = n - 1;
