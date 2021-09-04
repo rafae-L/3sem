@@ -8,11 +8,11 @@ class subvector
 {
 private:
     int *trash;
-    int l; //указвает на первую незаполненую ячейку
-    int available; //на последнюю доступную
+    int l; //СѓРєР°Р·РІР°РµС‚ РЅР° РїРµСЂРІСѓСЋ РЅРµР·Р°РїРѕР»РЅРµРЅСѓСЋ СЏС‡РµР№РєСѓ
+    int available; //РЅР° РїРѕСЃР»РµРґРЅСЋСЋ РґРѕСЃС‚СѓРїРЅСѓСЋ
 
 public:
-    subvector (int n){ //кол-во элементов
+    subvector (int n){ //РєРѕР»-РІРѕ СЌР»РµРјРµРЅС‚РѕРІ
         if(n == 0) n = standart_lenght;
 
         trash = new int[n];
@@ -20,11 +20,11 @@ public:
         available = n - 1;
     }
 
-    subvector (int n, int a) : subvector(n) { //n одинаковых элементов a
+    subvector (int n, int a) : subvector(n) { //n РѕРґРёРЅР°РєРѕРІС‹С… СЌР»РµРјРµРЅС‚РѕРІ a
         for(int i = 0; i < n; i++) trash[i] = a;
     }
 
-   subvector (int *massiv, int n) { //передается указатель / сколько оттуда копировать
+   subvector (int *massiv, int n) { //РїРµСЂРµРґР°РµС‚СЃСЏ СѓРєР°Р·Р°С‚РµР»СЊ / СЃРєРѕР»СЊРєРѕ РѕС‚С‚СѓРґР° РєРѕРїРёСЂРѕРІР°С‚СЊ
         delete[] trash;
 
         trash = massiv;
@@ -42,10 +42,10 @@ public:
         available = a.available;
     }
 
-    subvector operator += (subvector const a){ //поэлементное сложение (если один больше, другого, то копирование недостающих ячеек)
+    subvector operator += (subvector const a){ //РїРѕСЌР»РµРјРµРЅС‚РЅРѕРµ СЃР»РѕР¶РµРЅРёРµ (РµСЃР»Рё РѕРґРёРЅ РІРµРєС‚РѕСЂ РґР»РёРЅСЊС€Рµ, РґСЂСѓРіРѕРіРѕ, С‚Рѕ РєРѕРїРёСЂРѕРІР°РЅРёРµ РЅРµРґРѕСЃС‚Р°СЋС‰РёС… СЏС‡РµРµРє)
         if(a.l <= l)
         {
-            for(int i = 0; i < a.l; i++) //a.l - свободная ячейка, поэтому, до неё НЕ включительно
+            for(int i = 0; i < a.l; i++) //a.l - СЃРІРѕР±РѕРґРЅР°СЏ СЏС‡РµР№РєР°, РїРѕСЌС‚РѕРјСѓ, РґРѕ РЅРµС‘ РќР• РІРєР»СЋС‡РёС‚РµР»СЊРЅРѕ
                 trash[i] += (a.trash)[i];
         }
         else
